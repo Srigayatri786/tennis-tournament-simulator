@@ -11,43 +11,50 @@ class TestGameScorer(TestCase):
     def test_invalid_point_length_less_than_2(self) -> None:
         self.assertRaises(
             custom_exceptions.InvalidScoreLengths, 
-            self.game_scorer_obj.get_game_point([0], [0, 15])
+            self.game_scorer_obj.get_game_point,
+            [0], [0, 15]
         )
     
     def test_invalid_point_length_greater_than_2(self) -> None:
         self.assertRaises(
             custom_exceptions.InvalidScoreLengths, 
-            self.game_scorer_obj.get_game_point([0, 1, 1], [0, 15])
+            self.game_scorer_obj.get_game_point,
+            [0, 1, 1], [0, 15]
         )
 
     def test_invalid_game_length_less_than_2(self) -> None:
         self.assertRaises(
             custom_exceptions.InvalidScoreLengths, 
-            self.game_scorer_obj.get_game_point([0, 1], [0])
+            self.game_scorer_obj.get_game_point,
+            [0, 1], [0]
         )
     
     def test_invalid_game_length_greater_than_2(self) -> None:
         self.assertRaises(
             custom_exceptions.InvalidScoreLengths, 
-            self.game_scorer_obj.get_game_point([0, 1], [0, 15, 30])
+            self.game_scorer_obj.get_game_point,
+            [0, 1], [0, 15, 30]
         )
 
     def test_point_not_valid_range(self) -> None:
         self.assertRaises(
             custom_exceptions.InvalidPoints, 
-            self.game_scorer_obj.get_game_point([0, 2], [0, 15])
+            self.game_scorer_obj.get_game_point,
+            [0, 2], [0, 15]
         )
 
     def test_point_not_valid_both_equal(self) -> None:
         self.assertRaises(
             custom_exceptions.InvalidPoints, 
-            self.game_scorer_obj.get_game_point([0, 0], [0, 15])
+            self.game_scorer_obj.get_game_point,
+            [0, 0], [0, 15]
         )
     
     def test_game_score_not_valid(self) -> None:
         self.assertRaises(
             custom_exceptions.InvalidGameScores, 
-            self.game_scorer_obj.get_game_point([0, 1], [0, 1])
+            self.game_scorer_obj.get_game_point,
+            [0, 1], [0, 1]
         )
 
     def test_next_points_player_2_scores_1_point(self) -> None:
