@@ -1,20 +1,11 @@
+from simulator.constants import GAME_RECORD
+
 class GameRecord:
     def __init__(self, round, player_1, player_2):
-        self._scores = {
-            'player_1_point': 0,
-            'player_2_point': 0,
-            'player_1_game': 0,
-            'player_2_game': 0,
-            'player_1_set': 0,
-            'player_2_set': 0,
-            'player_1_match': 0,
-            'player_2_match': 0,
-            'round': round,
-            'player_1_num': player_1,
-            'player_2_num': player_2,
-            'is_player_1_server': True,
-            'num_serves': 0
-        }
+        self._scores = GAME_RECORD.copy()
+        self._scores['round'] = round
+        self._scores['player_1_num'] = player_1
+        self._scores['player_2_num'] = player_2
 
     def update_points(self, points):
         self._scores['player_1_point'] = points[0]
@@ -45,14 +36,14 @@ class GameRecord:
         return [self._scores['player_1_match'], self._scores['player_2_match']]
 
     def update_server_information(self, is_player_1_server):
-        self._scores['is_player_1_server'] = is_player_1_server
+        self._scores['is_player_1_server'] = int(is_player_1_server)
     
     def get_server_information(self):
-        return self._scores['is_player_1_server']
+        return bool(self._scores['is_player_1_server'])
     
     def update_num_serves(self, num_serves):
         self._scores['num_serves'] = num_serves
     
     def get_game_record_information(self):
-        return self._scores.values()
+        return list(self._scores.values())
     

@@ -7,6 +7,6 @@ class SaveLogsAsCSV:
         self.path = os.path.join(path, str(datetime.now().strftime('%s') + '.csv'))
     
     def save_logs(self, logs):
-        with open(self.path, "w") as f:
+        with open(self.path, 'w') as f:
             writer = csv.writer(f)
             writer.writerows(logs)

@@ -1,12 +1,13 @@
 from simulator.players.player_in_increasing_order import PlayersIncreasingOrder
 from simulator.assign_players.ranking_system import RankingSystem
 from simulator.simulate_match import MatchSimulator
+from simulator.constants import GAME_RECORD
 
 class Simulator:
     def __init__(self, num_players: int) -> None:
         self.num_players = num_players
         self.winner = -1
-        self.all_logs = []
+        self.all_logs = [[GAME_RECORD.keys()]]
 
     def simulate_tennis_tournament(self):
         players_obj = PlayersIncreasingOrder(self.num_players)
@@ -29,6 +30,12 @@ class Simulator:
                     winners.append(winner)
 
                     self.all_logs.append(match_logs)
+
+                elif player_1:
+                    winners.append(player_1)
+                else:
+                    winners.append(player_2)
+
             players = winners
             round += 1
         self.winner = players[0]
@@ -37,5 +44,5 @@ class Simulator:
         return self.winner
     
     def get_logs(self):
-        return self.all_logs
+        return [log for match_logs in self.all_logs for log in match_logs]
 
