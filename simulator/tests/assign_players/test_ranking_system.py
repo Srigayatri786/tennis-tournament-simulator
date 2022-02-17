@@ -1,7 +1,7 @@
-import unittest
+from unittest import TestCase
 from simulator.assign_players.ranking_system import RankingSystem
 
-class TestRankingSystem(unittest.TestCase):
+class TestRankingSystem(TestCase):
     def setUp(self) -> None:
         self.ranking_system_obj = RankingSystem()
 

@@ -22,8 +22,8 @@ class RankingSystem(AssignPlayers):
         combining strong array with the weak array: (1,5), (2,4), (None, 3)
         """
 
-        mid_point = len(players) // 2
-        strong_players = players[:mid_point]
-        weak_players = players[mid_point:][::-1]
+        mid_point: int = len(players) // 2
+        strong_players: List[int] = players[:mid_point]
+        weak_players: List[int] = players[mid_point:][::-1]
 
         return list(zip_longest(strong_players, weak_players))

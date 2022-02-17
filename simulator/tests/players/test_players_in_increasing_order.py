@@ -1,7 +1,7 @@
-import unittest
+from unittest import TestCase
 from simulator.players.player_in_increasing_order import PlayersIncreasingOrder
 
-class TestPlayersIncreasingOrder(unittest.TestCase):
+class TestPlayersIncreasingOrder(TestCase):
     def setUp(self) -> None:
         self.num_players = 35
 

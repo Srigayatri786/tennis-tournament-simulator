@@ -1,3 +1,7 @@
+from typing import Union
+
+GAME_TYPE = Union[int, str]
+
 # defines the percentage of times the server will win the point
 POINT_TO_SERVER = 0.6
 
@@ -9,6 +13,8 @@ GAME_POINT = 'GAME'
 DEUCE = 'DEUCE'
 ADVANTAGE_POINT = 'AD'
 
+GAME_POINTS = [POINT_0, POINT_1, POINT_2, POINT_3, GAME_POINT, DEUCE, ADVANTAGE_POINT]
+
 NEXT_GAME_POINTS = {
     POINT_0: POINT_1,
     POINT_1: POINT_2,
@@ -19,6 +25,9 @@ NEXT_GAME_POINTS = {
 }
 
 GAME_RECORD = {
+    'round': 0,
+    'player_1_num': 0,
+    'player_2_num': 0,
     'player_1_point': 0,
     'player_2_point': 0,
     'player_1_game': 0,
@@ -27,9 +36,6 @@ GAME_RECORD = {
     'player_2_set': 0,
     'player_1_match': 0,
     'player_2_match': 0,
-    'round': 0,
-    'player_1_num': 0,
-    'player_2_num': 0,
     'is_player_1_server': 1,
     'num_serves': 0
 }
