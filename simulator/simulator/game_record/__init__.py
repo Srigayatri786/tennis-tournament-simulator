@@ -1,5 +1,5 @@
 from typing import List
-from simulator.constants import GAME_RECORD, GAME_TYPE, GAME_POINTS
+from constants import GAME_RECORD, GAME_TYPE, GAME_POINTS
 
 class GameRecord:
     """

@@ -1,5 +1,5 @@
 import random
-from simulator.constants import POINT_TO_SERVER
+from constants import POINT_TO_SERVER
 
 class PointGenerator:
     def simulate_point(self, is_player_1_serve) -> bool:

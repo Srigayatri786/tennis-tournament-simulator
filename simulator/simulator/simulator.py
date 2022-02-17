@@ -1,7 +1,7 @@
 from simulator.players.player_in_increasing_order import PlayersIncreasingOrder
 from simulator.assign_players.ranking_system import RankingSystem
 from simulator.simulate_match import MatchSimulator
-from simulator.constants import GAME_RECORD
+from constants import GAME_RECORD
 
 class Simulator:
     def __init__(self, num_players: int) -> None:

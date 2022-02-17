@@ -1,4 +1,4 @@
-from simulator.constants import GAME_POINT
+from constants import GAME_POINT
 
 class SetScorer:
     def get_set_scores(self, set_scores, winner):
