@@ -5,9 +5,7 @@ from simulator.validators.validate_player_index import ValidatePlayerIndex
 class SetScorer:
 
     def get_set_scores(self, set_scores: List[int], game_winner: int) -> List[int]:
-        """
-        Updates the set score of tthe winner of the game
-        """
+        """Updates the set score of tthe winner of the game"""
         player_index_validator = ValidatePlayerIndex(game_winner)
         player_index_validator.validate()
 
@@ -18,9 +16,7 @@ class SetScorer:
         return set_scores
 
     def is_player_1_serving(self, set_scores: List[int], is_player_1_serve: bool) -> bool:
-        """
-        Players change serves whenever odd games (1st, 3rd, 5th etc).
-        """
+        """Players change serves whenever odd games (1st, 3rd, 5th etc)."""
         scores_validator = ValidateScores(set_scores)
         scores_validator.validate()
 
@@ -29,9 +25,7 @@ class SetScorer:
         return is_player_1_serve
 
     def _is_tie(self, set_scores: List[int])  -> bool:
-        """
-        A tie is determined if the both players have won 6 games each. A tie breaker is 
-        """
+        """A tie is determined if the both players have won 6 games each. A tie breaker is """
         return set_scores[0] == set_scores[1] and set_scores[0] == 6
 
     def get_set_winner(self, set_scores: List[int], prev_set_scores: List[int]) -> int:

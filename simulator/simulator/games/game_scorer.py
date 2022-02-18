@@ -12,9 +12,7 @@ from custom_exceptions import InvalidScoreLengths, InvalidPoints, InvalidGameSco
 class GameScorer:
 
     def get_game_point(self, points: List[int], game_scores: List[GAME_TYPE]):
-        """
-        Gets the updated game score given the points and the game scores
-        """
+        """Gets the updated game score given the points and the game scores"""
         if len(points) != 2 or len(game_scores) != 2:
             raise InvalidScoreLengths()
 
@@ -28,9 +26,7 @@ class GameScorer:
         return self._update_deuce_points([player_1_game_score, player_2_game_score])
 
     def _increase_point(self, point: int, game_score: GAME_TYPE) -> GAME_TYPE:
-        """
-        Increases the game score based on the previous score and the point
-        """
+        """Increases the game score based on the previous score and the point"""
         if point not in [0, 1]:
             raise InvalidPoints()
 

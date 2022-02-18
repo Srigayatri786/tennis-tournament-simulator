@@ -3,14 +3,10 @@ from simulator.validators.validate_scores import ValidateScores
 from simulator.validators.validate_player_index import ValidatePlayerIndex
 
 class BestOfThreeMatchScorer:
-    """
-    The class to score the match: This employs a best of 3 strategy.
-    """
+    """The class to score the match: This employs a best of 3 strategy."""
 
     def score_match(self, match_scores: List[int], set_winner: int) -> List[int]:
-        """
-        Updates the match scores of the player who won the set.
-        """
+        """Updates the match scores of the player who won the set."""
         player_index_validator = ValidatePlayerIndex(set_winner)
         player_index_validator.validate()
 

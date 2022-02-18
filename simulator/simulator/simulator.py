@@ -1,3 +1,5 @@
+from typing import List
+from simulator.constants import GAME_TYPE
 from simulator.players.player_in_increasing_order import PlayersIncreasingOrder
 from simulator.assign_players.ranking_system import RankingSystem
 from simulator.simulate_match import MatchSimulator
@@ -5,23 +7,25 @@ from constants import GAME_RECORD
 
 class Simulator:
     def __init__(self, num_players: int) -> None:
-        self.num_players = num_players
-        self.winner = -1
-        self.all_logs = [[GAME_RECORD.keys()]]
+        self.num_players: int = num_players
+        self.winner: int = -1
+        self.all_logs: List[List[GAME_TYPE]] = [[GAME_RECORD.keys()]]
+        self.ranking_system_obj: RankingSystem = RankingSystem()
+        self.players_obj: PlayersIncreasingOrder = PlayersIncreasingOrder(self.num_players)
+        self.players: List[int] = self.players_obj.simulate_list_of_players()
 
     def simulate_tennis_tournament(self):
-        players_obj = PlayersIncreasingOrder(self.num_players)
-        players: int = players_obj.simulate_list_of_players()
-
-        ranking_system_obj = RankingSystem()
+        """Simulates the Tennis tournament"""
         round_num = 1
 
-        while len(players) > 1:
-            player_pairs = ranking_system_obj.assign_players_to_rounds(players)
+        while len(self.players) > 1:
+            # pairs players together
+            player_pairs = self.ranking_system_obj.assign_players_to_rounds(self.players)
+            
             winners = []
             for player_1, player_2 in player_pairs:
+                # simulate a match between player_1 and player_2
                 if player_1 and player_2:
-
                     match_simulator = MatchSimulator(round_num, player_1, player_2)
                     winner = match_simulator.simulate_match()
                     winners.append(winner)
@@ -34,13 +38,14 @@ class Simulator:
                 else:
                     winners.append(player_2)
 
-            players = winners
+            # winners of current round will be the players of the next round
+            self.players = winners
             round_num += 1
-        self.winner = players[0]
-
-    def get_winner(self):
-        return self.winner
+        
+        # the winner of tournament is the first element of the players list
+        return self.players[0]
 
     def get_logs(self):
+        """Retrives the logs"""
         return [log for match_logs in self.all_logs for log in match_logs]
 

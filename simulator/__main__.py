@@ -25,9 +25,7 @@ if __name__ == '__main__':
             raise argparse.ArgumentError(num_players_argument, "Number of players should be between 2 and 64 (inclusive).")
 
         simulator = Simulator(args.num_players)
-        simulator.simulate_tennis_tournament()
-
-        winner = simulator.get_winner()
+        winner = simulator.simulate_tennis_tournament()
         logs = simulator.get_logs()
 
         save_to_csv = SaveLogsAsCSV(args.logs)
