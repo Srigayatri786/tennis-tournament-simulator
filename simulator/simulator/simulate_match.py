@@ -1,4 +1,4 @@
-from simulator.points import PointGenerator
+from simulator.points.point_generator import PointGenerator
 from simulator.games.game_scorer import GameScorer
 from simulator.sets.set_scorer import SetScorer
 from simulator.matches.best_of_3_match_scorer import BestOfThreeMatchScorer

@@ -5,6 +5,9 @@ GAME_TYPE = Union[int, str]
 # defines the percentage of times the server will win the point
 POINT_TO_SERVER = 0.6
 
+# defines the percentage of times number of serves will be 1
+NUM_SERVES  =  0.5
+
 POINT_0 = 0
 POINT_1 = 15
 POINT_2 = 30
