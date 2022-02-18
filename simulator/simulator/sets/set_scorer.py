@@ -3,9 +3,9 @@ import custom_exceptions
 class SetScorer:
 
     def get_set_scores(self, set_scores, game_winner):
-        """
+        '''
         Updates the set score of tthe winner of the game
-        """
+        '''
 
         if game_winner not in [0, 1]:
             raise custom_exceptions.InvalidPlayerIndex()
@@ -21,9 +21,9 @@ class SetScorer:
         return set_scores
     
     def is_player_1_serving(self, set_scores, is_player_1_serve):
-        """
+        '''
         Players change serves whenever odd games (1st, 3rd, 5th etc).
-        """
+        '''
 
         if len(set_scores) != 2:
             raise custom_exceptions.InvalidScoreLengths()
@@ -37,9 +37,9 @@ class SetScorer:
         return is_player_1_serve
 
     def is_tie(self, set_scores):
-        """
+        '''
         A tie is determined if the both players have won 6 games each. A tie breaker is 
-        """
+        '''
         return set_scores[0] == set_scores[1] and set_scores[0] == 6
 
     #TODO: fix this

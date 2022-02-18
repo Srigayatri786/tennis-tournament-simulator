@@ -2,13 +2,13 @@ from typing import List
 from custom_exceptions import InvalidPlayerIndex, InvalidScoreLengths, InvalidMatchScores
 
 class BestOfThreeMatchScorer:
-    """
+    '''
     The class to score the match: This employs a best of 3 strategy.
-    """
+    '''
     def score_match(self, match_scores: List[int], set_winner: int) -> List[int]:
-        """
+        '''
         Updates the match scores of the player who won the set.
-        """
+        '''
         if set_winner not in [0, 1]:
             raise InvalidPlayerIndex()
         
@@ -23,12 +23,12 @@ class BestOfThreeMatchScorer:
         return match_scores
     
     def get_match_winner(self, match_scores: List[int]) -> int:
-        """
+        '''
         Match_Scores -> the scores of both player 1 and player 2
         Returns 0 if player 1 won 2 sets, 
         1 if player 2 won 2 sets, 
         -1 otherwise
-        """
+        '''
         if len(match_scores) != 2:
             raise InvalidScoreLengths()
 

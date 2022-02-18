@@ -11,6 +11,3 @@ class TestPlayersIncreasingOrder(TestCase):
     
     def test_simulate_player(self):
         self.assertCountEqual(self.players, [i + 1 for i in range(self.num_players)])
-
-    def test_simulate_player(self):
-        self.assertCountEqual(self.players, [i + 1 for i in range(self.num_players)])
