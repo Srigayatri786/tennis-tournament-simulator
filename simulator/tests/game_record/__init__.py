@@ -19,7 +19,7 @@ class TestGameRecord(TestCase):
     # def test_player_1(self) -> None:
     #     game_record: List[GAME_TYPE] = self.get_game_record()
     #     self.assertEqual(game_record[self.game_record_columns.index('player_1_num')], 2)
-    
+
     # def test_player_2(self) -> None:
     #     game_record: List[GAME_TYPE] = self.get_game_record()
     #     self.assertEqual(game_record[self.game_record_columns.index('player_2_num')], 3)
@@ -36,7 +36,7 @@ class TestGameRecord(TestCase):
     #     self.game_record.update_points([0, 1])
     #     game_record: List[GAME_TYPE] = self.get_game_record()
     #     self.assertEqual(game_record[self.game_record_columns.index('player_2_point'), 1])
-    
+
     # def test_points_with_one_point(self) -> None:
     #     self.game_record.reset_points()
     #     self.game_record.update_points([1])
@@ -50,7 +50,7 @@ class TestGameRecord(TestCase):
     #     game_record: List[GAME_TYPE] = self.get_game_record()
     #     self.assertEqual(game_record[self.game_record_columns.index('player_2_point'), 0])
     #     self.assertEqual(game_record[self.game_record_columns.index('player_1_point'), 1])
-    
+
     # def test_same_points(self) -> None:
     #     self.game_record.reset_points()
     #     self.game_record.update_points([1, 1])
@@ -77,7 +77,7 @@ class TestGameRecord(TestCase):
     #     self.game_record.update_game_score([0, 15])
     #     game_record: List[GAME_TYPE] = self.get_game_record()
     #     self.assertEqual(game_record[self.game_record_columns.index('player_2_game'), 15])
-    
+
     # def test_game_with_one_point(self) -> None:
     #     self.game_record.reset_game_scores()
     #     self.game_record.update_game_score([40])
@@ -91,13 +91,13 @@ class TestGameRecord(TestCase):
     #     game_record: List[GAME_TYPE] = self.get_game_record()
     #     self.assertEqual(game_record[self.game_record_columns.index('player_1_game'), 0])
     #     self.assertEqual(game_record[self.game_record_columns.index('player_2_game'), 1])
-    
+
     # def test_not_valid_game(self) -> None:
     #     self.game_record.reset_game_scores()
     #     self.game_record.update_game_score([1, 1])
     #     game_record: List[GAME_TYPE] = self.get_game_record()
     #     self.assertEqual(game_record[self.game_record_columns.index('player_1_game'), 0])
     #     self.assertEqual(game_record[self.game_record_columns.index('player_2_game'), 0])
-    
 
-    
+
+

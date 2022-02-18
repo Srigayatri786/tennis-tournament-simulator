@@ -22,10 +22,10 @@ class GameScorer:
 
         if points[0] == points[1]:
             raise InvalidPoints()
-        
+
         player_1_game_score: GAME_TYPE = self._increase_point(points[0], game_scores[0])
         player_2_game_score: GAME_TYPE = self._increase_point(points[1], game_scores[1])
-        
+
         return self._update_deuce_points([player_1_game_score, player_2_game_score])
 
     def _increase_point(self, point: int, game_score: GAME_TYPE) -> GAME_TYPE:
@@ -38,10 +38,10 @@ class GameScorer:
 
         if game_score not in GAME_POINTS:
             raise InvalidGameScores()
-        
+
         if not point:
             return game_score
-        
+
         return NEXT_GAME_POINTS[game_score]
 
     def _update_deuce_points(self, game_scores: List[GAME_TYPE]) -> List[GAME_TYPE]:
@@ -52,7 +52,7 @@ class GameScorer:
 
         if len(game_scores) != 2:
             raise InvalidScoreLengths()
-        
+
         if game_scores[0] == game_scores[1] and (game_scores[0] in [POINT_3, ADVANTAGE_POINT]):
             return [DEUCE, DEUCE]
         return [game_scores[0], game_scores[1]]

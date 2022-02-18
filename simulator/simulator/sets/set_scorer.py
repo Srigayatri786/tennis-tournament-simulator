@@ -10,13 +10,13 @@ class SetScorer:
         '''
         player_index_validator = ValidatePlayerIndex(game_winner)
         player_index_validator.validate()
-        
+
         scores_validator = ValidateScores(set_scores)
         scores_validator.validate()
-        
+
         set_scores[game_winner] += 1
         return set_scores
-    
+
     def is_player_1_serving(self, set_scores: List[int], is_player_1_serve: bool) -> bool:
         '''
         Players change serves whenever odd games (1st, 3rd, 5th etc).
@@ -47,12 +47,12 @@ class SetScorer:
 
         if self._is_tie(prev_set_scores) and 7 in set_scores:
             return set_scores.index(7)
-        
+
         difference = set_scores[0] - set_scores[1]
         if difference >= 2 and set_scores[0] >= 6:
             return 0
-        
+
         if difference <= -2 and set_scores[1] >= 6:
             return 1
-        
+
         return -1

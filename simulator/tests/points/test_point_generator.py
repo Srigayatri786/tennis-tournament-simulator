@@ -23,7 +23,7 @@ class TestPointGenerator(TestCase):
         for _ in range(total_count):
             points: List[int] = self.point_generator_obj.simulate_point(True)
             player_1_wins_count += points[0]
-        
+
         self.assertAlmostEqual(player_1_wins_count / total_count, POINT_TO_SERVER, 1)
 
     def test_player_2_server_randomness(self) -> None:
@@ -35,7 +35,7 @@ class TestPointGenerator(TestCase):
         for _ in range(total_count):
             points: List[int] = self.point_generator_obj.simulate_point(False)
             player_2_wins_count += points[1]
-        
+
         self.assertAlmostEqual(player_2_wins_count / total_count, POINT_TO_SERVER, 1)
 
     def test_num_serves_range(self)-> None:
