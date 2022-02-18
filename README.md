@@ -1,6 +1,6 @@
 # Tennis Tournament Simulator
 
-This projects simulates a tennis tournament based on the rules mentioned [here] (https://en.wikipedia.org/wiki/Tennis_scoring_system) and [here] (https://www.youtube.com/watch?v=stdk_U0pL0o).
+This projects simulates a tennis tournament based on the rules mentioned [here](https://en.wikipedia.org/wiki/Tennis_scoring_system) and [here](https://www.youtube.com/watch?v=stdk_U0pL0o).
 
 ## Assumptions
 - Players generated are ordered based on their strength from strong to weak.
