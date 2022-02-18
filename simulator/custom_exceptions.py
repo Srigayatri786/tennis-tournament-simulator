@@ -25,3 +25,6 @@ class InvalidGameScores(BaseGameException):
 class InvalidPlayerIndex(BaseGameException):
     MESSAGE: str = 'Player index in a match should be either 0 or 1'
 
+class InvalidNumberServes(BaseGameException):
+    MESSAGE: str = 'Serves should be either 1 or 2'
+

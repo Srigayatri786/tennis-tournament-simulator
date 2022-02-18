@@ -1,7 +1,7 @@
 from typing import List
 from constants import GAME_RECORD, GAME_TYPE, GAME_POINTS
 import custom_exceptions
-from validators.validate_scores import ValidateScores
+from simulator.validators.validate_scores import ValidateScores
 
 class GameRecord:
     '''
@@ -116,10 +116,18 @@ class GameRecord:
 
     def update_num_serves(self, num_serves: int) -> None:
         '''
-        Updates number of serves it took for serving player. 
+        Updates number of serves it took for serving player 
         Must be either 1 or 2
         '''
+        if num_serves not in [1, 2]:
+            raise custom_exceptions.InvalidNumberServes()
         self._scores['num_serves'] = num_serves
+
+    def get_num_serves(self) -> int:
+        '''
+        Get the number of serves taken by server
+        '''
+        return self._scores['num_serves']
 
     def get_game_record_information(self) -> List[GAME_TYPE]:
         '''
