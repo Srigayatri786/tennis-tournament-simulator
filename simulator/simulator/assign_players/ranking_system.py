@@ -7,6 +7,7 @@ class RankingSystem(AssignPlayers):
     This implementation assigns the strongest player to the weakest player
     Assumption: The players are sorted from strongest to weakest
     '''
+
     def assign_players_to_rounds(self, players: List[int]) -> List[Tuple[int]]:
         '''
         The players are divided into 2 arrays

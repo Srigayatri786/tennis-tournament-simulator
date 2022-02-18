@@ -1,23 +1,22 @@
 from typing import List
 from custom_exceptions import InvalidPlayerIndex, InvalidScoreLengths, InvalidMatchScores
+from simulator.validators.validate_scores import ValidateScores
+from simulator.validators.validate_player_index import ValidatePlayerIndex
 
 class BestOfThreeMatchScorer:
     '''
     The class to score the match: This employs a best of 3 strategy.
     '''
+
     def score_match(self, match_scores: List[int], set_winner: int) -> List[int]:
         '''
         Updates the match scores of the player who won the set.
         '''
-        if set_winner not in [0, 1]:
-            raise InvalidPlayerIndex()
+        player_index_validator = ValidatePlayerIndex(set_winner)
+        player_index_validator.validate()
 
-        if len(match_scores) != 2:
-            raise InvalidScoreLengths()
-
-        for score in match_scores:
-            if score < 0:
-                raise InvalidMatchScores()
+        scores_validator = ValidateScores(match_scores)
+        scores_validator.validate()
 
         match_scores[set_winner] += 1
         return match_scores
@@ -29,12 +28,8 @@ class BestOfThreeMatchScorer:
         1 if player 2 won 2 sets, 
         -1 otherwise
         '''
-        if len(match_scores) != 2:
-            raise InvalidScoreLengths()
-
-        for score in match_scores:
-            if score < 0:
-                raise InvalidMatchScores()
+        scores_validator = ValidateScores(match_scores)
+        scores_validator.validate()
 
         winner = -1
 

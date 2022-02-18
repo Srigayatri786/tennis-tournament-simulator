@@ -7,6 +7,7 @@ class SaveLogs:
     '''
     Abstract class to save logs
     '''
+
     def __init__(self, path) -> None:
         self.path = os.path.join(path, str(datetime.now().strftime('%s') + self.EXTENTION))
 

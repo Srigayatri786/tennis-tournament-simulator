@@ -7,6 +7,7 @@ class ValidateScores:
         there are exactly 2 scores in the array and 
         scores are non-negative
     '''
+
     def __init__(self, scores: List[int]) -> None:
         self.scores: List[int] = scores
 

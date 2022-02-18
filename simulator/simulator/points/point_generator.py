@@ -5,7 +5,7 @@ from constants import POINT_TO_SERVER, NUM_SERVES
 class PointGenerator:
     def simulate_point(self, is_player_1_serve: bool) -> List[int]:
         ''' 
-        determines if the server wins the point
+        Determines if the server wins the point
         The POINT_TO_SERVER determines how frequently the server wins
         '''
         random_number: float = random.random()

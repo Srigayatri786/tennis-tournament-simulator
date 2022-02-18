@@ -5,9 +5,15 @@ from simulator.sets.set_scorer import SetScorer
 
 class TestSetScorer(TestCase):
     def setUp(self) -> None:
+        '''
+        Creating the set scorer object
+        '''
         self.set_scorer_obj: SetScorer = SetScorer()
 
     def test_increase_score_invalid_game_winner(self) -> None:
+        '''
+        Testing when there is an invalid game winner
+        '''
         self.assertRaises(
             custom_exceptions.InvalidPlayerIndex,
             self.set_scorer_obj.get_set_scores,
@@ -15,6 +21,9 @@ class TestSetScorer(TestCase):
         )
 
     def test_increase_score_invalid_set_scores_length_less_than_2(self) -> None:
+        '''
+        Testing when the game scores < 2
+        '''
         self.assertRaises(
             custom_exceptions.InvalidScoreLengths,
             self.set_scorer_obj.get_set_scores,
@@ -22,6 +31,9 @@ class TestSetScorer(TestCase):
         )
 
     def test_increase_score_invalid_set_scores_length_greater_than_2(self) -> None:
+        '''
+        Testing when game scores > 2
+        '''
         self.assertRaises(
             custom_exceptions.InvalidScoreLengths,
             self.set_scorer_obj.get_set_scores,
@@ -29,18 +41,27 @@ class TestSetScorer(TestCase):
         )
 
     def test_increase_score_for_player_1(self) -> None:
+        '''
+        Test Player 1 won a set
+        '''
         self.assertEqual(
             self.set_scorer_obj.get_set_scores([2, 5], 0),
             [3, 5]
         )
 
     def test_increase_score_for_player_2(self) -> None:
+        '''
+        Test Player 2 won a set
+        '''
         self.assertEqual(
             self.set_scorer_obj.get_set_scores([2, 5], 1),
             [2, 6]
         )
 
     def test_get_server_invalid_set_scores_length_less_than_2(self) -> None:
+        '''
+        Test scores length is less than 2 while getting server information
+        '''
         self.assertRaises(
             custom_exceptions.InvalidScoreLengths,
             self.set_scorer_obj.is_player_1_serving,
@@ -48,6 +69,9 @@ class TestSetScorer(TestCase):
         )
 
     def test_get_server_invalid_set_scores_length_greater_than_2(self) -> None:
+        '''
+        Test scores length is greater than 2 while getting server information
+        '''
         self.assertRaises(
             custom_exceptions.InvalidScoreLengths,
             self.set_scorer_obj.is_player_1_serving,
@@ -55,24 +79,36 @@ class TestSetScorer(TestCase):
         )
 
     def test_get_server_when_player_1_serves(self) -> None:
+        '''
+        Test server information when player 1 serves and odd games have been played
+        '''
         self.assertEqual(
             self.set_scorer_obj.is_player_1_serving([2, 1], True),
             False
         )
 
     def test_get_server_when_player_1_serves(self) -> None:
+        '''
+        Test server information when player 2 serves and even games have been played
+        '''
         self.assertEqual(
             self.set_scorer_obj.is_player_1_serving([0, 2], False),
             False
         )
 
     def test_get_server_when_player_1_serves(self) -> None:
+        '''
+        Test server informationn when player 1 serves and even games have been played
+        '''
         self.assertEqual(
             self.set_scorer_obj.is_player_1_serving([1, 1], True),
             True
         )
 
     def test_get_server_when_player_1_serves(self) -> None:
+        '''
+        Test server informationn when player 2 serves and odd games have been played
+        '''
         self.assertEqual(
             self.set_scorer_obj.is_player_1_serving([1, 2], False),
             True

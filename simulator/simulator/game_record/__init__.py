@@ -74,7 +74,6 @@ class GameRecord:
         '''
         Updates the set scores
         '''
-
         scores_validator = ValidateScores(set_scores)
         scores_validator.validate()
 
@@ -91,7 +90,6 @@ class GameRecord:
         '''
         Updates the match scores
         '''
-
         scores_validator = ValidateScores(match_scores)
         scores_validator.validate()
 
