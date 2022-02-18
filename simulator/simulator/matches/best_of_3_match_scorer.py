@@ -1,5 +1,4 @@
 from typing import List
-from custom_exceptions import InvalidPlayerIndex, InvalidScoreLengths, InvalidMatchScores
 from simulator.validators.validate_scores import ValidateScores
 from simulator.validators.validate_player_index import ValidatePlayerIndex
 
