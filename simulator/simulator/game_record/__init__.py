@@ -1,5 +1,7 @@
 from typing import List
 from constants import GAME_RECORD, GAME_TYPE, GAME_POINTS
+import custom_exceptions
+from validators.validate_scores import ValidateScores
 
 class GameRecord:
     '''
@@ -26,17 +28,15 @@ class GameRecord:
         '''
         The points must be either 0 or 1.
         Stores whether the player scored a point or not.
-
-        If the length of points sent is > 2, only the first 2 values are used
         '''
-        if len(points) < 2 or points[0] == points[1]:
-            return
+        if len(points) != 2:
+            raise custom_exceptions.InvalidScoreLengths
+        
+        if points[0] == points[1] or points[0] not in [0, 1] or points[1] not in [0, 1]:
+            raise custom_exceptions.InvalidPoints
 
-        if points[0] in [0, 1]:
-            self._scores['player_1_point'] = points[0]
-
-        if points[1] in [0, 1]:
-            self._scores['player_2_point'] = points[1]
+        self._scores['player_1_point'] = points[0]
+        self._scores['player_2_point'] = points[1]
 
     def get_points(self) -> List[int]:
         '''
@@ -55,14 +55,14 @@ class GameRecord:
         '''
         Updates the game scores
         '''
-        if len(game_scores) < 2:
-            return
+        if len(game_scores) != 2:
+            raise custom_exceptions.InvalidScoreLengths
 
-        if game_scores[0] in GAME_POINTS:
-            self._scores['player_1_game'] = game_scores[0]
+        if game_scores[0] not in GAME_POINTS or game_scores[1] not in GAME_POINTS:
+            raise custom_exceptions.InvalidGameScores
 
-        if game_scores[1] in GAME_POINTS:
-            self._scores['player_2_game'] = game_scores[1]
+        self._scores['player_1_game'] = game_scores[0]
+        self._scores['player_2_game'] = game_scores[1]
 
     def get_game_scores(self) -> List[GAME_TYPE]:
         '''
@@ -74,6 +74,10 @@ class GameRecord:
         '''
         Updates the set scores
         '''
+
+        scores_validator = ValidateScores(set_scores)
+        scores_validator.validate()
+
         self._scores['player_1_set'] = set_scores[0]
         self._scores['player_2_set'] = set_scores[1]
 
@@ -87,6 +91,10 @@ class GameRecord:
         '''
         Updates the match scores
         '''
+
+        scores_validator = ValidateScores(match_scores)
+        scores_validator.validate()
+
         self._scores['player_1_match'] = match_scores[0]
         self._scores['player_2_match'] = match_scores[1]
 
