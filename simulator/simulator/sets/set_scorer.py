@@ -1,51 +1,53 @@
-import custom_exceptions
+from typing import List
+from simulator.validators.validate_scores import ValidateScores
+from simulator.validators.validate_player_index import ValidatePlayerIndex
 
 class SetScorer:
 
-    def get_set_scores(self, set_scores, game_winner):
+    def get_set_scores(self, set_scores: List[int], game_winner: int) -> List[int]:
         '''
         Updates the set score of tthe winner of the game
         '''
-
-        if game_winner not in [0, 1]:
-            raise custom_exceptions.InvalidPlayerIndex()
+        player_index_validator = ValidatePlayerIndex(game_winner)
+        player_index_validator.validate()
         
-        if len(set_scores) != 2:
-            raise custom_exceptions.InvalidScoreLengths()
-
-        for score in set_scores:
-            if score < 0:
-                raise custom_exceptions.InvalidMatchScores()
+        scores_validator = ValidateScores(set_scores)
+        scores_validator.validate()
         
         set_scores[game_winner] += 1
         return set_scores
     
-    def is_player_1_serving(self, set_scores, is_player_1_serve):
+    def is_player_1_serving(self, set_scores: List[int], is_player_1_serve: bool) -> bool:
         '''
         Players change serves whenever odd games (1st, 3rd, 5th etc).
         '''
-
-        if len(set_scores) != 2:
-            raise custom_exceptions.InvalidScoreLengths()
-
-        for score in set_scores:
-            if score < 0:
-                raise custom_exceptions.InvalidMatchScores()
+        scores_validator = ValidateScores(set_scores)
+        scores_validator.validate()
 
         if sum(set_scores) % 2 == 1:
             return not is_player_1_serve
         return is_player_1_serve
 
-    def is_tie(self, set_scores):
+    def _is_tie(self, set_scores: List[int])  -> bool:
         '''
         A tie is determined if the both players have won 6 games each. A tie breaker is 
         '''
         return set_scores[0] == set_scores[1] and set_scores[0] == 6
 
-    #TODO: fix this
-    def get_set_winner(self, set_scores):
-        if self.is_tie(set_scores) and 7 in set_scores:
+    def get_set_winner(self, set_scores: List[int], prev_set_scores: List[int]) -> int:
+        '''
+        Winner of the set  is he first  to win 6 games with a difference of 2 
+        If the game was a tie previously at 6-6, then whoever wins the next round, wins
+        '''
+        scores_validator = ValidateScores(set_scores)
+        scores_validator.validate()
+
+        prev_scores_validator = ValidateScores(prev_set_scores)
+        prev_scores_validator.validate()
+
+        if self._is_tie(prev_set_scores) and 7 in set_scores:
             return set_scores.index(7)
+        
         difference = set_scores[0] - set_scores[1]
         if difference >= 2 and set_scores[0] >= 6:
             return 0

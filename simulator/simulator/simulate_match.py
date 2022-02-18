@@ -38,7 +38,7 @@ class MatchSimulator:
                 game_scores = [0, 0]
 
                 # get set winner
-                set_winner = self.set_scorer.get_set_winner(set_scores)
+                set_winner = self.set_scorer.get_set_winner(set_scores, self.game_record.get_set_scores())
                 if set_winner >= 0:
                     match_scores = self.match_scorer.score_match(self.game_record.get_match_scores(), set_winner)
 
@@ -46,7 +46,7 @@ class MatchSimulator:
                     self.game_record.update_match_scores(match_scores)
                     
                 # get the player to serve
-                is_player_1_server = self.set_scorer.is_player_1_serve(set_scores)
+                is_player_1_server = self.set_scorer.is_player_1_serving(set_scores, self.game_record.get_server_information())
                 self.game_record.update_set_score(set_scores)
                 self.game_record.update_server_information(is_player_1_server)
             
