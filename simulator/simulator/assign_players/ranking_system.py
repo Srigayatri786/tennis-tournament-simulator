@@ -1,4 +1,3 @@
-import itertools
 from simulator.assign_players import AssignPlayers
 from itertools import zip_longest
 from typing import List, Tuple

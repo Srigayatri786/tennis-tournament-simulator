@@ -1,5 +1,4 @@
 import argparse
-from ast import arg
 from simulator.simulator import Simulator
 from simulator.save_logs.save_logs_csv import SaveLogsAsCSV
 

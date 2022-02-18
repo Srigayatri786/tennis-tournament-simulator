@@ -1,7 +1,7 @@
 from unittest import TestCase
 from typing import List
 from simulator.game_record import GameRecord
-from constants import GAME_RECORD, GAME_TYPE, POINT_0, POINT_1, POINT_2
+from constants import GAME_RECORD
 
 # TODO: Finish all test cases
 class TestGameRecord(TestCase):
