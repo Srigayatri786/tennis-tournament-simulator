@@ -1,5 +1,4 @@
 import argparse
-from ast import arg
 from simulator.simulator import Simulator
 from simulator.save_logs.save_logs_csv import SaveLogsAsCSV
 
@@ -24,7 +23,7 @@ if __name__ == '__main__':
     try:
         if args.num_players > 64 or args.num_players < 2:
             raise argparse.ArgumentError(num_players_argument, "Number of players should be between 2 and 64 (inclusive).")
-        
+
         simulator = Simulator(args.num_players)
         simulator.simulate_tennis_tournament()
 

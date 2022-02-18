@@ -20,7 +20,7 @@ class TestBestOfThreeMatchScorer(TestCase):
             self.match_obj.score_match,
             [1], 0 
         )
-    
+
     def test_invalid_match_length_greater_than_2(self) -> None:
         self.assertRaises(
             custom_exceptions.InvalidScoreLengths, 
@@ -34,7 +34,7 @@ class TestBestOfThreeMatchScorer(TestCase):
             self.match_obj.score_match,
             [0, -1], 1
         )
-    
+
     def test_next_points_player_1_wins_1_match(self) -> None:
         match_scores: List[int] = self.match_obj.score_match([0, 0], 0)
         self.assertEqual(match_scores, [1, 0])
@@ -71,7 +71,7 @@ class TestBestOfThreeMatchScorer(TestCase):
             self.match_obj.get_match_winner, 
             [2, -3]
         )
-    
+
     def test_winner_player_1(self) -> None:
         self.assertEqual(self.match_obj.get_match_winner([2, 1]), 0)
 
@@ -83,7 +83,7 @@ class TestBestOfThreeMatchScorer(TestCase):
 
     def test_winner_no_winner_player_1_lead(self) -> None:
         self.assertEqual(self.match_obj.get_match_winner([1, 0]), -1)
-    
+
     def test_winner_no_winner_player_2_lead(self) -> None:
         self.assertEqual(self.match_obj.get_match_winner([0, 1]), -1)
 
@@ -94,4 +94,4 @@ class TestBestOfThreeMatchScorer(TestCase):
         self.assertEqual(self.match_obj.get_match_winner([1, 1]), -1)
 
 
-    
+

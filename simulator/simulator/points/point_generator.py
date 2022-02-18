@@ -10,7 +10,7 @@ class PointGenerator:
         '''
         random_number: float = random.random()
         does_server_win:bool = random_number <= POINT_TO_SERVER
-        
+
 
         '''
         Player 1 can win if 
@@ -19,7 +19,7 @@ class PointGenerator:
         '''
         if (is_player_1_serve and does_server_win) or (not is_player_1_serve and not does_server_win):
             return [1, 0]
-        
+
         return [0, 1]
 
     def simulate_num_serves(self) -> int:

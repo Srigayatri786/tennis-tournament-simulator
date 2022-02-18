@@ -50,14 +50,14 @@ class GameRecord:
         '''
         self._scores['player_1_game'] = 0
         self._scores['player_2_game'] = 0
-    
+
     def update_game_score(self, game_scores: List[GAME_TYPE]) -> None:
         '''
         Updates the game scores
         '''
         if len(game_scores) < 2:
             return
-        
+
         if game_scores[0] in GAME_POINTS:
             self._scores['player_1_game'] = game_scores[0]
 
@@ -82,14 +82,14 @@ class GameRecord:
         Retrieve the players' set score as a list.
         '''
         return [self._scores['player_1_set'], self._scores['player_2_set']]
-    
+
     def update_match_scores(self, match_scores: List[int]) -> None:
         '''
         Updates the match scores
         '''
         self._scores['player_1_match'] = match_scores[0]
         self._scores['player_2_match'] = match_scores[1]
-    
+
     def get_match_scores(self) -> List[int]:
         '''
         Retrieve the players' match scores as a list.
@@ -101,23 +101,23 @@ class GameRecord:
         Updates if player 1 is serving
         '''
         self._scores['is_player_1_server'] = int(is_player_1_server)
-    
+
     def get_server_information(self) -> bool:
         '''
         Retrieves if player 1 is serving
         '''
         return bool(self._scores['is_player_1_server'])
-    
+
     def update_num_serves(self, num_serves: int) -> None:
         '''
         Updates number of serves it took for serving player. 
         Must be either 1 or 2
         '''
         self._scores['num_serves'] = num_serves
-    
+
     def get_game_record_information(self) -> List[GAME_TYPE]:
         '''
         Retrieves the records as a list
         '''
         return list(self._scores.values())
-    
+

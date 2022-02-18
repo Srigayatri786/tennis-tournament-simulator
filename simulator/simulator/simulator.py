@@ -12,7 +12,7 @@ class Simulator:
     def simulate_tennis_tournament(self):
         players_obj = PlayersIncreasingOrder(self.num_players)
         players: int = players_obj.simulate_list_of_players()
-        
+
         ranking_system_obj = RankingSystem()
         round = 1
 
@@ -37,10 +37,10 @@ class Simulator:
             players = winners
             round += 1
         self.winner = players[0]
-    
+
     def get_winner(self):
         return self.winner
-    
+
     def get_logs(self):
         return [log for match_logs in self.all_logs for log in match_logs]
 

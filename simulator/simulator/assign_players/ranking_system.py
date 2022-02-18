@@ -1,4 +1,3 @@
-import itertools
 from simulator.assign_players import AssignPlayers
 from itertools import zip_longest
 from typing import List, Tuple
@@ -21,7 +20,6 @@ class RankingSystem(AssignPlayers):
 
         combining strong array with the weak array: (1,5), (2,4), (None, 3)
         '''
-
         mid_point: int = len(players) // 2
         strong_players: List[int] = players[:mid_point]
         weak_players: List[int] = players[mid_point:][::-1]

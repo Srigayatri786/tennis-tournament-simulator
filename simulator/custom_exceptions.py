@@ -6,7 +6,7 @@ class BaseException(Exception):
         # Call the base class constructor with the parameters it needs
         super().__init__(self.MESSAGE)
 
-    
+
     def __str__(self):
         return self.MESSAGE
 

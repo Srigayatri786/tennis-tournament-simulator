@@ -11,17 +11,17 @@ class BestOfThreeMatchScorer:
         '''
         if set_winner not in [0, 1]:
             raise InvalidPlayerIndex()
-        
+
         if len(match_scores) != 2:
             raise InvalidScoreLengths()
 
         for score in match_scores:
             if score < 0:
                 raise InvalidMatchScores()
-        
+
         match_scores[set_winner] += 1
         return match_scores
-    
+
     def get_match_winner(self, match_scores: List[int]) -> int:
         '''
         Match_Scores -> the scores of both player 1 and player 2
@@ -35,11 +35,11 @@ class BestOfThreeMatchScorer:
         for score in match_scores:
             if score < 0:
                 raise InvalidMatchScores()
-        
+
         winner = -1
 
         for player, score in enumerate(match_scores):
             if score >= 2:
                 return player
         return winner
-        
+

@@ -9,7 +9,7 @@ class ValidateScores:
     '''
     def __init__(self, scores: List[int]) -> None:
         self.scores: List[int] = scores
-        
+
     def validate(self):
         if len(self.scores) != 2:
             raise custom_exceptions.InvalidScoreLengths()
