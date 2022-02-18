@@ -30,6 +30,7 @@ source venv/bin/activate
 
 ## Running the simulator
 ```
+cd simulator/
 python3 ./simulator/ --num_players NUM_PLAYERS --logs LOG_FILE_STORED
 ```
 

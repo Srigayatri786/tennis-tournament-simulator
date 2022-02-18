@@ -8,6 +8,11 @@ class SaveLogs:
 
     def __init__(self, path) -> None:
         """Gets the path to save the logs"""
+
+        # creates the folder if it does not exists
+        if not os.path.exists(path):
+            os.makedirs(path)
+        
         self.path = os.path.join(
             path,
             str(datetime.now().strftime('%s') + self.EXTENTION)
