@@ -44,12 +44,14 @@ class GameScorer:
     def _update_deuce_points(self, game_scores: List[GAME_TYPE]) -> List[GAME_TYPE]:
         """
         Updates the game score in case of a Deuce.
-        A deuce occurs when the score is tied at 40-40 or when the advatage of a player is lost.
+        A deuce occurs when the score is tied at 40-40.
+        A deuce also occurs when when the advatage of a player is lost.
         """
         if len(game_scores) != 2:
             raise InvalidScoreLengths()
 
-        if game_scores[0] == game_scores[1] and (game_scores[0] in [POINT_3, ADVANTAGE_POINT]):
+        if (game_scores[0] == game_scores[1]) and \
+            (game_scores[0] in [POINT_3, ADVANTAGE_POINT]):
             return [DEUCE, DEUCE]
         return [game_scores[0], game_scores[1]]
 

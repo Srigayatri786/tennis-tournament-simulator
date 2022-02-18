@@ -64,28 +64,28 @@ class TestSetScorer(TestCase):
         )
 
     def test_get_server_when_player_1_serves_odd(self) -> None:
-        """Test server information when player 1 serves and odd games have been played"""
+        """Test server when player 1 serves and odd games have been played"""
         self.assertEqual(
             self.set_scorer_obj.is_player_1_serving([2, 1], True),
             False
         )
 
     def test_get_server_when_player_2_serves_even(self) -> None:
-        """Test server information when player 2 serves and even games have been played"""
+        """Test server when player 2 serves and even games have been played"""
         self.assertEqual(
             self.set_scorer_obj.is_player_1_serving([0, 2], False),
             False
         )
 
     def test_get_server_when_player_1_serves_even(self) -> None:
-        """Test server informationn when player 1 serves and even games have been played"""
+        """Test server when player 1 serves and even games have been played"""
         self.assertEqual(
             self.set_scorer_obj.is_player_1_serving([1, 1], True),
             True
         )
 
     def test_get_server_when_player_2_serves_odd(self) -> None:
-        """Test server informationn when player 2 serves and odd games have been played"""
+        """Test server when player 2 serves and odd games have been played"""
         self.assertEqual(
             self.set_scorer_obj.is_player_1_serving([1, 2], False),
             True

@@ -8,7 +8,10 @@ class SaveLogs:
 
     def __init__(self, path) -> None:
         """Gets the path to save the logs"""
-        self.path = os.path.join(path, str(datetime.now().strftime('%s') + self.EXTENTION))
+        self.path = os.path.join(
+            path,
+            str(datetime.now().strftime('%s') + self.EXTENTION)
+        )
 
     def save_logs(self, logs: List[List[GAME_TYPE]]) -> None:
         """This function must be overrided by all implementing classes"""

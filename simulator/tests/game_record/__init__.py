@@ -34,10 +34,15 @@ class TestGameRecord(TestCase):
     def test_reset_points(self) -> None:
         """Test that reset points works"""
         self.game_record.update_points([0, 1])
-        self.game_record.reset_points()
         game_record: List[GAME_TYPE] = self.get_game_record()
-        self.assertEqual(game_record[self.game_record_columns.index('player_2_point')], 0)
-        self.assertEqual(game_record[self.game_record_columns.index('player_1_point')], 0)
+        self.assertEqual(
+            game_record[self.game_record_columns.index('player_2_point')], 
+            0
+        )
+        self.assertEqual(
+            game_record[self.game_record_columns.index('player_1_point')],
+            0
+        )
 
     def test_points_in_record(self) -> None:
         """Update the points in the record"""

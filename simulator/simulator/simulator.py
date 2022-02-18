@@ -1,5 +1,5 @@
 from typing import List
-from simulator.constants import GAME_TYPE
+from constants import GAME_TYPE
 from simulator.players.player_in_increasing_order import PlayersIncreasingOrder
 from simulator.assign_players.ranking_system import RankingSystem
 from simulator.simulate_match import MatchSimulator
@@ -12,9 +12,9 @@ class Simulator:
         self.num_players: int = num_players
         self.winner: int = -1
         self.all_logs: List[List[GAME_TYPE]] = [[GAME_RECORD.keys()]]
-        self.ranking_system_obj: RankingSystem = RankingSystem()
-        self.players_obj: PlayersIncreasingOrder = PlayersIncreasingOrder(self.num_players)
-        self.players: List[int] = self.players_obj.simulate_list_of_players()
+        self.ranking_system: RankingSystem = RankingSystem()
+        players_obj: PlayersIncreasingOrder = PlayersIncreasingOrder(self.num_players)
+        self.players: List[int] = players_obj.simulate_list_of_players()
 
     def simulate_tennis_tournament(self):
         """Simulates the Tennis tournament"""
@@ -22,7 +22,7 @@ class Simulator:
 
         while len(self.players) > 1:
             # pairs players together
-            player_pairs = self.ranking_system_obj.assign_players_to_rounds(self.players)
+            player_pairs = self.ranking_system.assign_players_to_rounds(self.players)
             
             winners = []
             for player_1, player_2 in player_pairs:

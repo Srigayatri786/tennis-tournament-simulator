@@ -16,7 +16,10 @@ class TestPointGenerator(TestCase):
         self.assertCountEqual(point, [0, 1])
 
     def test_player_1_server_randomness(self) -> None:
-        """Tests that whenn player 1 is the server, player 1 wins by the assigned percentage"""
+        """
+        Tests that whenn player 1 is the server,
+        player 1 wins by the assigned percentage
+        """
         player_1_wins_count: int = 0
         total_count: int = 10000
         for _ in range(total_count):
@@ -26,7 +29,10 @@ class TestPointGenerator(TestCase):
         self.assertAlmostEqual(player_1_wins_count / total_count, POINT_TO_SERVER, 1)
 
     def test_player_2_server_randomness(self) -> None:
-        """Tests that whenn player 2 is the server, player 2 wins by the assigned percentage"""
+        """
+        Tests that whenn player 2 is the server,
+        player 2 wins by the assigned percentage
+        """
         player_2_wins_count: int = 0
         total_count: int = 10000
         for _ in range(total_count):
@@ -36,7 +42,7 @@ class TestPointGenerator(TestCase):
         self.assertAlmostEqual(player_2_wins_count / total_count, POINT_TO_SERVER, 1)
 
     def test_num_serves_range(self)-> None:
-        """Tests that the num serves that is generated is in the range between 1 and 2"""
+        """Tests that the num serves is in the range between 1 and 2"""
         num_serves: int = self.point_generator_obj.simulate_num_serves()
         self.assertTrue(1 <= num_serves <= 2)
 
