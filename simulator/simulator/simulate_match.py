@@ -1,7 +1,7 @@
 from simulator.points import PointGenerator
 from simulator.games.game_scorer import GameScorer
 from simulator.sets.set_scorer import SetScorer
-from simulator.matches.match_scorer import MatchScorer
+from simulator.matches.best_of_3_match_scorer import BestOfThreeMatchScorer
 from simulator.game_record import GameRecord
 
 class MatchSimulator:
@@ -13,7 +13,7 @@ class MatchSimulator:
         self.point_simulator =  PointGenerator()
         self.game_scorer = GameScorer()
         self.set_scorer = SetScorer()
-        self.match_scorer = MatchScorer()
+        self.match_scorer = BestOfThreeMatchScorer()
         self.game_record = GameRecord(self.round, self.player_1, self.player_2)
         self.match_logs = []
         self.winner = -1

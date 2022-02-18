@@ -16,6 +16,12 @@ class InvalidScoreLengths(BaseException):
 class InvalidPoints(BaseException):
     MESSAGE = 'Points must be either 0 or 1'
 
+class InvalidMatchScores(BaseException):
+    MESSAGE = 'Points must be greater than or equal to 0'
+
 class InvalidGameScores(BaseException):
     MESSAGE = 'Game scores should be one of: ' + ', '.join([str(game_point) for game_point in GAME_POINTS])
+
+class InvalidPlayerIndex(BaseException):
+    MESSAGE = 'Player index in a match should be either 0 or 1'
 
