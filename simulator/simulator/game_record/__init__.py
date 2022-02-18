@@ -8,12 +8,12 @@ class GameRecord:
     Maintains a rolling copy of the match between 2 players
     '''
 
-    def __init__(self, round: int, player_1: int, player_2: int) -> None:
+    def __init__(self, round_num: int, player_1: int, player_2: int) -> None:
         '''
         Initializes the match between player 1 and player 2
         '''
         self._scores: List[GAME_TYPE] = GAME_RECORD.copy()
-        self._scores['round'] = round
+        self._scores['round'] = round_num
         self._scores['player_1_num'] = player_1
         self._scores['player_2_num'] = player_2
 

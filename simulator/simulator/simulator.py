@@ -14,7 +14,7 @@ class Simulator:
         players: int = players_obj.simulate_list_of_players()
 
         ranking_system_obj = RankingSystem()
-        round = 1
+        round_num = 1
 
         while len(players) > 1:
             player_pairs = ranking_system_obj.assign_players_to_rounds(players)
@@ -22,7 +22,7 @@ class Simulator:
             for player_1, player_2 in player_pairs:
                 if player_1 and player_2:
 
-                    match_simulator = MatchSimulator(round, player_1, player_2)
+                    match_simulator = MatchSimulator(round_num, player_1, player_2)
                     winner = match_simulator.simulate_match()
                     winners.append(winner)
 
@@ -35,7 +35,7 @@ class Simulator:
                     winners.append(player_2)
 
             players = winners
-            round += 1
+            round_num += 1
         self.winner = players[0]
 
     def get_winner(self):

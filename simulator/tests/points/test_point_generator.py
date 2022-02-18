@@ -18,7 +18,7 @@ class TestPointGenerator(TestCase):
         '''
         Tests that whenn player 1 is the server, player 1 wins by the assigned percentage
         '''
-        player_1_wins_count:int = 0
+        player_1_wins_count: int = 0
         total_count: int = 10000
         for _ in range(total_count):
             points: List[int] = self.point_generator_obj.simulate_point(True)
@@ -30,7 +30,7 @@ class TestPointGenerator(TestCase):
         '''
         Tests that whenn player 2 is the server, player 2 wins by the assigned percentage
         '''
-        player_2_wins_count:int = 0
+        player_2_wins_count: int = 0
         total_count: int = 10000
         for _ in range(total_count):
             points: List[int] = self.point_generator_obj.simulate_point(False)
@@ -42,7 +42,7 @@ class TestPointGenerator(TestCase):
         '''
         Tests that the num serves that is generated is in the range between 1 and 2
         '''
-        num_serves:int = self.point_generator_obj.simulate_num_serves()
+        num_serves: int = self.point_generator_obj.simulate_num_serves()
         self.assertTrue(1 <= num_serves <= 2)
 
     def test_num_serves_randomness(self) -> None:
