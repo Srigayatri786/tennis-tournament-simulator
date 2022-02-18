@@ -7,4 +7,3 @@ class Players:
         Creates a list of players, retrieves player numbers 
         The list must contain player numbers
         '''
-        pass
