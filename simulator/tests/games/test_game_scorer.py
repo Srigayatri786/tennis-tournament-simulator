@@ -7,14 +7,14 @@ import custom_exceptions
 class TestGameScorer(TestCase):
     def setUp(self) -> None:
         self.game_scorer_obj: GameScorer = GameScorer()
-    
+
     def test_invalid_point_length_less_than_2(self) -> None:
         self.assertRaises(
             custom_exceptions.InvalidScoreLengths, 
             self.game_scorer_obj.get_game_point,
             [0], [0, 15]
         )
-    
+
     def test_invalid_point_length_greater_than_2(self) -> None:
         self.assertRaises(
             custom_exceptions.InvalidScoreLengths, 
@@ -28,7 +28,7 @@ class TestGameScorer(TestCase):
             self.game_scorer_obj.get_game_point,
             [0, 1], [0]
         )
-    
+
     def test_invalid_game_length_greater_than_2(self) -> None:
         self.assertRaises(
             custom_exceptions.InvalidScoreLengths, 
@@ -49,7 +49,7 @@ class TestGameScorer(TestCase):
             self.game_scorer_obj.get_game_point,
             [0, 0], [0, 15]
         )
-    
+
     def test_game_score_not_valid(self) -> None:
         self.assertRaises(
             custom_exceptions.InvalidGameScores, 
@@ -72,7 +72,7 @@ class TestGameScorer(TestCase):
     def test_next_points_player_2_scores_game_point(self) -> None:
         game_scores: List[GAME_TYPE] = self.game_scorer_obj.get_game_point([0, 1], [0, 40])
         self.assertEqual(game_scores, [0, GAME_POINT])
-    
+
     def test_next_points_deuce_player_2_starts_deuce(self) -> None:
         game_scores: List[GAME_TYPE] = self.game_scorer_obj.get_game_point([0, 1], [40, 30])
         self.assertEqual(game_scores, [DEUCE, DEUCE])
@@ -108,4 +108,4 @@ class TestGameScorer(TestCase):
         )
         self.assertEqual(game_scores, [DEUCE, GAME_POINT])
 
-    
+

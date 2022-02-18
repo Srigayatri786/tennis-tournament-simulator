@@ -132,6 +132,6 @@ class TestSetScorer(TestCase):
 
     def test_get_winner_tie_breaker_player_1(self) -> None:
         self.assertEqual(self.set_scorer_obj.get_set_winner([7, 6], [6, 6]), 0)
-    
+
     def test_get_winner_tie_breaker_player_1(self) -> None:
         self.assertEqual(self.set_scorer_obj.get_set_winner([6, 7], [6, 6]), 1)

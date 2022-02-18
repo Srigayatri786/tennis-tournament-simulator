@@ -44,12 +44,12 @@ class MatchSimulator:
 
                     set_scores = [0, 0]
                     self.game_record.update_match_scores(match_scores)
-                    
+
                 # get the player to serve
                 is_player_1_server = self.set_scorer.is_player_1_serving(set_scores, self.game_record.get_server_information())
                 self.game_record.update_set_score(set_scores)
                 self.game_record.update_server_information(is_player_1_server)
-            
+
             self.game_record.update_game_score(game_scores)
             self.match_logs.append(self.game_record.get_game_record_information())
         self.winner = self.match_scorer.get_match_winner(self.game_record.get_match_scores())
@@ -60,9 +60,9 @@ class MatchSimulator:
         if self.winner == 0:
             return self.player_1
         return self.player_2
-    
+
     def get_match_logs(self):
         return self.match_logs
 
 
-        
+

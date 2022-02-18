@@ -8,6 +8,6 @@ class TestPlayersIncreasingOrder(TestCase):
 
         self.players_obj: PlayersIncreasingOrder = PlayersIncreasingOrder(self.num_players)
         self.players: List[int] = self.players_obj.simulate_list_of_players()
-    
+
     def test_simulate_player(self):
         self.assertCountEqual(self.players, [i + 1 for i in range(self.num_players)])
