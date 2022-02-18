@@ -40,7 +40,7 @@ class MatchSimulator:
 
         if game_winner >= 0:
             game_scores = [0, 0]
-        
+
         self.game_record.update_game_score(game_scores)
         return game_winner
 
@@ -92,13 +92,13 @@ class MatchSimulator:
             set_winner = -1
             if game_winner >= 0:
                 set_winner = self.get_updated_set_score(game_winner)
-                
+
             if set_winner >= 0:
                 self.get_match_information(set_winner)
-            
+
             # update match logs
             self.match_logs.append(self.game_record.get_game_record_information())
-        
+
         # get the winner of the game
         winner = self.match_scorer.get_match_winner(self.game_record.get_match_scores())
         return self._get_winner(winner)
@@ -112,7 +112,7 @@ class MatchSimulator:
         if winner == 0:
             return self.player_1
         return self.player_2
-    
+
     def get_match_logs(self) -> List[List[GAME_TYPE]]:
         return self.match_logs
 

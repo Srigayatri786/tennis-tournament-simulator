@@ -31,7 +31,7 @@ class GameRecord:
         '''
         if len(points) != 2:
             raise custom_exceptions.InvalidScoreLengths
-        
+
         if points[0] == points[1] or points[0] not in [0, 1] or points[1] not in [0, 1]:
             raise custom_exceptions.InvalidPoints
 
