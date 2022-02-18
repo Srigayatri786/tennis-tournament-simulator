@@ -23,12 +23,10 @@ class Simulator:
                 if player_1 and player_2:
 
                     match_simulator = MatchSimulator(round, player_1, player_2)
-                    match_simulator.simulate_match()
-
-                    winner = match_simulator.get_winner()
-                    match_logs = match_simulator.get_match_logs()
+                    winner = match_simulator.simulate_match()
                     winners.append(winner)
 
+                    match_logs = match_simulator.get_match_logs()
                     self.all_logs.append(match_logs)
 
                 elif player_1:

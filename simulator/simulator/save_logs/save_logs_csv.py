@@ -1,12 +1,13 @@
-import os
 import csv
-from datetime import datetime
+from simulator.save_logs import SaveLogs
 
-class SaveLogsAsCSV:
-    def __init__(self, path):
-        self.path = os.path.join(path, str(datetime.now().strftime('%s') + '.csv'))
-    
+class SaveLogsAsCSV(SaveLogs):
+    EXTENTION: str = '.csv'
+
     def save_logs(self, logs):
+        '''
+        Saves logs in a CSV file
+        '''
         with open(self.path, 'w') as f:
             writer = csv.writer(f)
             writer.writerows(logs)
