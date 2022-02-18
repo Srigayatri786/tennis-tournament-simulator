@@ -4,9 +4,7 @@ from typing import List
 from constants import GAME_TYPE
 
 class SaveLogs:
-    """
-    Abstract class to save logs
-    """
+    """Abstract class to save logs"""
 
     def __init__(self, path) -> None:
         """Gets the path to save the logs"""

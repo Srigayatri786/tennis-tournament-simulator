@@ -2,6 +2,8 @@ import csv
 from simulator.save_logs import SaveLogs
 
 class SaveLogsAsCSV(SaveLogs):
+    """Save the logs as a CSV"""
+
     EXTENTION: str = '.csv'
 
     def save_logs(self, logs):

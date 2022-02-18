@@ -4,6 +4,8 @@ import custom_exceptions
 from simulator.matches.best_of_3_match_scorer import BestOfThreeMatchScorer
 
 class TestBestOfThreeMatchScorer(TestCase):
+    """Tests the best of 3 match scorer class"""
+
     def setUp(self) -> None:
         """Creating a match scorer object"""
         self.match_obj = BestOfThreeMatchScorer()

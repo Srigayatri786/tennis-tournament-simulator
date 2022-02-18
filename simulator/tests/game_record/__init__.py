@@ -5,6 +5,8 @@ from constants import GAME_RECORD, GAME_TYPE
 import custom_exceptions
 
 class TestGameRecord(TestCase):
+    """Tests the game record class and its functions"""
+
     def setUp(self) -> None:
         """Create a game record"""
         self.game_record = GameRecord(round_num=1, player_1=2, player_2=3)
@@ -102,7 +104,7 @@ class TestGameRecord(TestCase):
         self.assertEqual(game_record[self.game_record_columns.index('player_2_game')], 15)
 
     def test_game_with_one_point(self) -> None:
-        """Test game scores with scores length < 2 """
+        """Test game scores with scores length < 2"""
         self.assertRaises(
             custom_exceptions.InvalidScoreLengths,
             self.game_record.update_game_score,
@@ -110,7 +112,7 @@ class TestGameRecord(TestCase):
         )
 
     def test_game_with_more_than_two_point(self) -> None:
-        """Test game scores with scores length > 2 """
+        """Test game scores with scores length > 2"""
         self.assertRaises(
             custom_exceptions.InvalidScoreLengths,
             self.game_record.update_game_score,
@@ -138,7 +140,7 @@ class TestGameRecord(TestCase):
         self.assertEqual(game_record[self.game_record_columns.index('player_2_set')], 3)
 
     def test_set_with_one_point(self) -> None:
-        """Test set scores with scores length < 2 """
+        """Test set scores with scores length < 2"""
         self.assertRaises(
             custom_exceptions.InvalidScoreLengths,
             self.game_record.update_set_score,
@@ -146,7 +148,7 @@ class TestGameRecord(TestCase):
         )
 
     def test_set_with_more_than_two_point(self) -> None:
-        """Test set scores with scores length > 2 """
+        """Test set scores with scores length > 2"""
         self.assertRaises(
             custom_exceptions.InvalidScoreLengths,
             self.game_record.update_set_score,
@@ -175,7 +177,7 @@ class TestGameRecord(TestCase):
         self.assertEqual(game_record[self.game_record_columns.index('player_2_match')], 2)
 
     def test_match_with_one_point(self) -> None:
-        """Test match scores with scores length < 2 """
+        """Test match scores with scores length < 2"""
         self.assertRaises(
             custom_exceptions.InvalidScoreLengths,
             self.game_record.update_match_scores,
@@ -183,7 +185,7 @@ class TestGameRecord(TestCase):
         )
 
     def test_match_with_more_than_two_point(self) -> None:
-        """Test match scores with scores length > 2 """
+        """Test match scores with scores length > 2"""
         self.assertRaises(
             custom_exceptions.InvalidScoreLengths,
             self.game_record.update_match_scores,

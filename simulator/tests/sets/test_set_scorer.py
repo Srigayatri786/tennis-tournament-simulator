@@ -1,9 +1,10 @@
 from unittest import TestCase
-from typing import List
 import custom_exceptions
 from simulator.sets.set_scorer import SetScorer
 
 class TestSetScorer(TestCase):
+    """Tests the set scorer class"""
+
     def setUp(self) -> None:
         """Creating the set scorer object"""
         self.set_scorer_obj: SetScorer = SetScorer()

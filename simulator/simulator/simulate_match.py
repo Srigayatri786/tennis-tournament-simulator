@@ -7,6 +7,8 @@ from simulator.matches.best_of_3_match_scorer import BestOfThreeMatchScorer
 from simulator.game_record import GameRecord
 
 class MatchSimulator:
+    """Simulates a match between 2 players"""
+
     def __init__(self, round_num: int, player_1: int, player_2: int) -> None:
         """Initializes tthe classes required"""
         self.round: int = round_num

@@ -4,6 +4,8 @@ from constants import POINT_TO_SERVER, NUM_SERVES
 from simulator.points.point_generator import PointGenerator
 
 class TestPointGenerator(TestCase):
+    """Tests the point generator class"""
+
     def setUp(self) -> None:
         """Creates the base object for point generator"""
         self.point_generator_obj = PointGenerator()

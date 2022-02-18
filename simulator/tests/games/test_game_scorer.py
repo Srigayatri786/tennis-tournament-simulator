@@ -5,6 +5,8 @@ from simulator.games.game_scorer import GameScorer
 import custom_exceptions
 
 class TestGameScorer(TestCase):
+    """Tests the game scorer to class"""
+
     def setUp(self) -> None:
         """Creating a game scorer object"""
         self.game_scorer_obj: GameScorer = GameScorer()

@@ -3,6 +3,8 @@ from typing import List
 from constants import POINT_TO_SERVER, NUM_SERVES
 
 class PointGenerator:
+    """Simulates the points and num serves"""
+
     def simulate_point(self, is_player_1_serve: bool) -> List[int]:
         """
         Determines if the server wins the point

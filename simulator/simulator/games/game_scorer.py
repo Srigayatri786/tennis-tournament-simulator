@@ -8,8 +8,11 @@ from constants import GAME_POINT, \
     DEUCE
 from custom_exceptions import InvalidScoreLengths, InvalidPoints, InvalidGameScores
 
-
 class GameScorer:
+    """
+    Scores the game based on the previous score and the currennt point. 
+    The winner of a game is also determined
+    """
 
     def get_game_point(self, points: List[int], game_scores: List[GAME_TYPE]):
         """Gets the updated game score given the points and the game scores"""

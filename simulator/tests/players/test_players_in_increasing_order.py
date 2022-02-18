@@ -3,6 +3,8 @@ from unittest import TestCase
 from simulator.players.player_in_increasing_order import PlayersIncreasingOrder
 
 class TestPlayersIncreasingOrder(TestCase):
+    """Tests the players generated in increasing order of player strength"""
+
     def setUp(self) -> None:
         """Creating objects used for testing"""
         self.num_players: int = 35

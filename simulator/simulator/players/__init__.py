@@ -1,4 +1,6 @@
 class Players:
+    """Abstract class to generate a list of players"""
+
     def __init__(self, num_players: int) -> None:
         self.num_players = num_players
 

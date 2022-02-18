@@ -2,6 +2,8 @@ from unittest import TestCase
 from simulator.assign_players.ranking_system import RankingSystem
 
 class TestRankingSystem(TestCase):
+    """Tests the ranking system of assigning players into pairs"""
+
     def setUp(self) -> None:
         """Creates the object necessary to test the rankinng system"""
         self.ranking_system_obj = RankingSystem()

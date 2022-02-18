@@ -4,9 +4,7 @@ import custom_exceptions
 from simulator.validators.validate_scores import ValidateScores
 
 class GameRecord:
-    """
-    Maintains a rolling copy of the match between 2 players
-    """
+    """Maintains a rolling copy of the match between 2 players"""
 
     def __init__(self, round_num: int, player_1: int, player_2: int) -> None:
         """Initializes the match between player 1 and player 2"""

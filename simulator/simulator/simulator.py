@@ -6,6 +6,8 @@ from simulator.simulate_match import MatchSimulator
 from constants import GAME_RECORD
 
 class Simulator:
+    """Simulates a tournament for the specified number of players"""
+
     def __init__(self, num_players: int) -> None:
         self.num_players: int = num_players
         self.winner: int = -1
