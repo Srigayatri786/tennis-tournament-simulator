@@ -4,10 +4,10 @@ from constants import POINT_TO_SERVER, NUM_SERVES
 
 class PointGenerator:
     def simulate_point(self, is_player_1_serve: bool) -> List[int]:
-        ''' 
+        """ 
         Determines if the server wins the point
         The POINT_TO_SERVER determines how frequently the server wins
-        '''
+        """
         random_number: float = random.random()
         does_server_win: bool = random_number <= POINT_TO_SERVER
 
@@ -22,10 +22,10 @@ class PointGenerator:
         return [0, 1]
 
     def simulate_num_serves(self) -> int:
-        '''
+        """
         Determines randomly how many serves it took a player.
         The NUM_SERVES determines how frequently the server uses 1 serve. 
-        '''
+        """
         random_number: float = random.random()
         if random_number <= NUM_SERVES:
             return 1

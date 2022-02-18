@@ -21,9 +21,9 @@ class MatchSimulator:
         self.winner: int = -1
 
     def get_updated_game_scores(self) -> None:
-        '''
+        """
         Simulates the point and gets the updated game score
-        '''
+        """
         # simulate a point
         points: List[int] = self.point_simulator.simulate_point(self.game_record.get_server_information())
 
@@ -45,9 +45,9 @@ class MatchSimulator:
         return game_winner
 
     def get_updated_set_score(self, game_winner: int) -> None:
-        '''
+        """
         If there is a game winner, update the set score
-        '''
+        """
         # computes the set scores and winners
         set_scores: List[int] = self.set_scorer.get_set_scores(self.game_record.get_set_scores(), game_winner)
         set_winner: int = self.set_scorer.get_set_winner(set_scores, self.game_record.get_set_scores())
@@ -62,9 +62,9 @@ class MatchSimulator:
         return set_winner
 
     def get_server_information(self, set_scores: List[int]) -> None:
-        '''
+        """
         Update the player who will be serving based on the new set scores
-        '''
+        """
         is_player_1_server: bool = self.set_scorer.is_player_1_serving(
             set_scores, 
             self.game_record.get_server_information()
@@ -72,9 +72,9 @@ class MatchSimulator:
         self.game_record.update_server_information(is_player_1_server)
 
     def get_match_information(self, set_winner) -> None:
-        '''
+        """
         Updates the match scores based on the winner of the set scores.
-        '''
+        """
         match_scores: List[int] = self.match_scorer.score_match(
             self.game_record.get_match_scores(), 
             set_winner
@@ -83,9 +83,9 @@ class MatchSimulator:
         self.game_record.update_match_scores(match_scores)
 
     def simulate_match(self) -> int:
-        '''
+        """
         Simulates the match and returns the winner
-        '''
+        """
         while self.match_scorer.get_match_winner(self.game_record.get_match_scores()) == -1:
             game_winner = self.get_updated_game_scores()
 
@@ -104,9 +104,9 @@ class MatchSimulator:
         return self._get_winner(winner)
 
     def _get_winner(self, winner: int) -> int:
-        '''
+        """
         Takes the index of the player and returns the player num. 
-        '''
+        """
         if winner == -1:
             return -1
         if winner == 0:
